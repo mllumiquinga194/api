@@ -1,0 +1,11 @@
+{
+  "name": "curso-mean2",
+  "version": "1.0.0",
+  "description": "Proyecto de API Rest con NodeJS para el curso de Victor Robles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Victor Robles",
+  "license": "MIT"
+}

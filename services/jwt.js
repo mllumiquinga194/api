@@ -20,5 +20,5 @@ exports.createToken = function(user){
         exp: moment().add(30, 'days').unix //fecha de expiracion
     };
 
-    return jwt.encode(payload, secret);
+    return jwt.encode(payload, secret);//esto es lo que se guartda en el token, la informacion del usuario codificada
 };

@@ -96,7 +96,8 @@ function saveUsers(req, res) {
                 user.save((err, userStored) => {
                     if (err) {
                         return res.status(500).send({
-                            message: 'Error al guardar el usuario'
+                                message: 'Email ya registrado',
+                                err
                         });
                     } else {
                         if (!userStored) {
@@ -369,7 +370,7 @@ function getImageFile(req, res) {
     var path_file = './uploads/users/' + imageFile; //elegimos esta ruta porque el middleware necesita empezar desde la raiz del proyecto
     fs.exists(path_file, function (exists) {
         if (exists) {
-            return res.sendFile(path.resolve(path_file));
+            return res.sendFile(path.resolve(path_file));//con resolve armo el path donde easta la imagen
         } else {
             return res.status(200).send({
                 message: 'No existe la imagen...'

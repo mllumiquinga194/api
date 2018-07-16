@@ -12,25 +12,10 @@ var album_routes = require('./routes/album');
 var song_routes = require('./routes/song');
 
 //lo que hace es convertir a objetos JSON lo datos que llegan en las peticiones http
-
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-//configurar cabeceras http
-
-// app.use((req, res, next) => {
-//     //Para permitir el acceso a todos los dominios
-//     res.header('Access-Control-Allow-Origin', '*');
-//     //Todos estos son caracteres necesaraios para que el api luego a nivel de AJAX funcione
-//     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-//     //Vamos a permitir los metodos http mas comunes
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-//     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-//     //lanzamos la funcion NEXT para que salga de este middleware y continue el flujo normal de ejecucion y pase ya a la ruta concreta
-//     next();
-// });
-
-// Configurar cabeceras y cors
+//configurar cabeceras http y cors
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');

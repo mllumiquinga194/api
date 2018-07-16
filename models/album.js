@@ -12,7 +12,8 @@ var AlbumSchema = Schema({
     year: Number,
     image: String,
     artist: { //va a guardar un ID de un objeto o un documento de la base de datos y ese objeto va a ser de tipo Artist
-        type : Schema.ObjectId, ref: 'Artist' //el va a reconocer que es de artis y relacionara un objeto con otro
+        type : Schema.ObjectId,
+        ref: 'Artist' //el va a reconocer que es de artis y relacionara un objeto con otro
     }
 });
 

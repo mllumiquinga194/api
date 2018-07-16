@@ -9,7 +9,7 @@ var secret = 'clave_secreta_curso';
 //el next es para salir del middleware
 exports.ensureAuth = function (req, res, next){
 
-    // recoger la autorizacion
+    // recoger la autorizacion de las cabeceras
     if (!req.headers.authorization) {
         return res.status(403).send({
             message: 'la peticion no tiene la cabecera de autenticacion'

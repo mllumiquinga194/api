@@ -210,6 +210,45 @@ function getSongFile(req, res) {
     });
 }
 
+//=============Buscar Productos
+function searchSongs (req, res) {
+
+    let termino = req.params.termino;
+
+    let expReg = new RegExp(termino, 'i');//de esta forma creo una expresion regular de acuerdo al termino recibido y le digo que es insencible con el parametro 'i'
+    
+    let find = Song.find({name: expReg}).sort('name');    
+    
+    find.populate({
+        path: 'album',
+        populate: {
+            path: 'artist', //en artist yo tengo un objetId que esta en la coleccion de documentos Artist entonces yo queiro que eso me lo sustitulo por el objeto que hay en la coleccion de artista
+            model: 'Artist'
+        }
+    }).exec((err, foundsong) => {
+        if (err) {
+            return res.status(500).send({
+                ok: false,
+                message: 'error de servidor',
+                err
+            });
+        } else {
+            if (!foundsong) {
+                return res.status(404).send({
+                    ok: false,
+                    message: 'No se ha encontrado Cancion'
+                });
+            } else {
+                return res.status(200).send({
+                    ok: true,
+                    songs: foundsong
+                });
+            }
+        }
+    });
+
+}
+
 module.exports = {
     getSong,
     getSongs,
@@ -217,5 +256,6 @@ module.exports = {
     updateSong,
     deleteSong,
     uploadFile,
-    getSongFile
+    getSongFile,
+    searchSongs
 };

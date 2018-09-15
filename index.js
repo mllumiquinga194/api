@@ -6,7 +6,7 @@ require('./config/config'); //para configurar el puerto
 // var port = process.env.PORT || 3977; // puerto para mi servidor
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.URLDB, {useNewUrlParser: true }, (err, res) => {
+mongoose.connect(process.env.URLDB, (err, res) => {
     if(err){
         throw err;
     }else{

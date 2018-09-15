@@ -228,8 +228,8 @@ function comparePass(req, res) {
     var params = req.body;
     var password = params.password;
 
-    console.log('ID del usuario logeado que llega al servidor por url: ', userId);
-    console.log('parametros que vienen del servidor: ', params);
+    // console.log('ID del usuario logeado que llega al servidor por url: ', userId);
+    // console.log('parametros que vienen del servidor: ', params);
 
     User.findById(userId, (err, user) => {
         if (err) {

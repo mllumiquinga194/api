@@ -21,6 +21,7 @@ api.put('/song/:id', md_auth.ensureAuth, SongController.updateSong);
 api.delete('/song/:id', md_auth.ensureAuth, SongController.deleteSong);
 api.post('/upload-file-song/:id', [md_auth.ensureAuth, md_upload], SongController.uploadFile);
 api.get('/get-song-file/:songFile', SongController.getSongFile);
+api.get('/searchsongs/:termino', SongController.searchSongs);
 
 // ahora exportamos nuestro api para poder utilizarlo fuera de nuestro fichero y que fuera pueda ser reconocido y las rutas sirvan en todo nuestro backend
 module.exports = api;

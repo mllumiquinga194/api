@@ -289,6 +289,7 @@ function updateUser(req, res) {
     });
 }
 
+
 function uploadImage(req, res) {
 
     var userId = req.params.id; //recibimos el Id de la ULR

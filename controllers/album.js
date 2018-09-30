@@ -171,6 +171,7 @@ function uploadImage(req, res) {
         var file_name = file_split[2];
 
         //si quisiera guardar la extension
+        
         var ext_split = file_name.split('\.');
         var file_ext = ext_split[1];
 

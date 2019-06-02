@@ -152,15 +152,15 @@ function uploadFile(req, res) {
     if(req.files){//tomo los archivos que vienen del body
         var file_path = req.files.file.path; // aqui ya tengo el path de la imagen, ahora recorto ese path para tener solo el nombre
 
-        var file_split = file_path.split('\/'); //le recorto las barras a ese path y en file_name guardo el arreglo que me queda.
+        var file_split = file_path.split('\\'); //le recorto las barras a ese path y en file_name guardo el arreglo que me queda.
         var file_name = file_split[2];
 
         //si quisiera guardar la extension
         var ext_split = file_name.split('\.');
         var file_ext = ext_split[1];
 
-        console.log(file_name);
-        console.log(file_ext);
+        // console.log(file_name);
+        // console.log(file_ext);
         
 
         if(file_ext == 'mp3' ||  file_ext == 'MP3' ||  file_ext == 'ogg' ||  file_ext == 'OGG'){
